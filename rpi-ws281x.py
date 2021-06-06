@@ -40,16 +40,16 @@ def clear():
 def cli():
     pass
 
-@click.command()
+@cli.command()
 def off():
     click.echo('Turn all pixels off')
     clear()
 
-@click.command()
+@cli.command()
 @click.argument('color', type=(int,int,int))
-def color(r,g,b):
+def color(color):
     click.echo('Set all pixels to color')
-    setColor(Color(r,g,b))
+    setColor(Color(*color))
 
 
 cli.add_command(off)
